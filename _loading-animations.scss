@@ -1,29 +1,53 @@
+$animation-width: 125px;
+$duration: 1.5s;
+$curve: cubic-bezier(0.240, 0.000, 0.760, 1.000);
+
+
 body {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+
+}
+
+
 
 .loading-container {
   width: 81%;
   margin: 0 auto;
-  display: none; }
+  display:none;
+}
+
 
 @keyframes slideRightDown {
   0% {
     margin-left: 0px;
-    background-color: #0050d1; }
+    background-color: #0050d1;
+
+  }
+
   25% {
     transform: scale(1.2);
-    background-color: #0050d1; }
+    background-color: #0050d1;
+  }
+
   50% {
-    margin-left: 125px;
+    margin-left: $animation-width;
     transform: scale(1);
-    background-color: #0050d1; }
+    background-color: #0050d1;
+  }
+
   75% {
     transform: scale(0.8);
-    background-color: #0042ad; }
+    background-color: #0042ad;
+  }
+
   100% {
     margin-left: 0px;
-    background-color: #0050d1; } }
+    background-color: #0050d1;
+  }
+}
+
+
 
 .circle {
   margin-top: 50px;
@@ -33,35 +57,53 @@ body {
   background-color: navy;
   z-index: 0;
   position: absolute;
+
+
   animation-name: slideRightDown;
-  animation-duration: 1.5s;
-  animation-timing-function: cubic-bezier(0.24, 0, 0.76, 1);
+  animation-duration: $duration;
+  animation-timing-function: $curve;
   animation-delay: 0;
   animation-iteration-count: 99;
   animation-direction: none;
-  animation-play-state: running; }
+  animation-play-state: running;
+}
+
 
 @keyframes orbit2 {
   0% {
-    margin-left: 125px;
+    margin-left: $animation-width;
     background-color: #af0005;
-    z-index: -1; }
+    z-index: -1;
+
+  }
+
   25% {
     transform: scale(0.8);
     z-index: -1;
-    background-color: #9b0105; }
+    background-color: #9b0105;
+  }
+
   50% {
     margin-left: 0;
     transform: scale(1);
-    background-color: #af0005; }
+    background-color: #af0005;
+
+  }
+
   75% {
     transform: scale(1.2);
     background-color: #bc0006;
-    z-index: 1; }
+    z-index: 1;
+  }
+
   100% {
-    margin-left: 125px;
+    margin-left: $animation-width;
     z-index: -1;
-    background-color: #af0005; } }
+    background-color: #af0005;
+  }
+}
+
+
 
 .circle2 {
   margin-top: 50px;
@@ -69,13 +111,15 @@ body {
   width: 100px;
   height: 100px;
   position: absolute;
+
   animation-name: orbit2;
-  animation-duration: 1.5s;
-  animation-timing-function: cubic-bezier(0.24, 0, 0.76, 1);
+  animation-duration: $duration;
+  animation-timing-function: $curve;
   animation-delay: 0;
   animation-iteration-count: 99;
   animation-direction: none;
-  animation-play-state: running; }
+  animation-play-state: running;
+}
 
-h1 {
-  font-family: arial; }
+
+

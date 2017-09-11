@@ -10,7 +10,15 @@ let detailsData
 let stopsOnLine = []
 let tpcName
 
+function startLoadingAnimation(){
+  console.log('start animation')
+  document.getElementById("loading").style.display = 'block';
+}
 
+function stopLoadingAnimation(){
+  console.log('stop animation')
+  document.getElementById("loading").style.display = 'none';
+}
 
 function travelType(type){
   modeOfTransport = type;
@@ -19,11 +27,8 @@ function travelType(type){
 }
 
 async function startRoutePicker(){
+  startLoadingAnimation()
   grabAllData();
-}
-
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 
@@ -74,6 +79,7 @@ function startDestinationPicker(route){
 function startStopPicker(end, destination){
 
   direction = destination
+  startLoadingAnimation();
   grabLineDetails()
 }
 
@@ -95,6 +101,7 @@ function renderStopButtons(){
 function startResults(stopCode, stopName){
   tpc = stopCode
   tpcName = stopName
+  startLoadingAnimation()
   grabTimes()
 }
 
@@ -153,6 +160,7 @@ function grabAllData() {
   xhr.onreadystatechange = function() {
     if (xhr.readyState !== 4) return
     linesData = JSON.parse(xhr.response)
+    stopLoadingAnimation();
     renderRoutes(determineRoutes(linesData))
   }
   requestLineString = OV_URL + "line/"
@@ -168,6 +176,7 @@ function grabTimes() {
   xhr.onreadystatechange = function() {
     if (xhr.readyState !== 4) return
     departuresData = JSON.parse(xhr.response)
+    stopLoadingAnimation()
     renderResults()
   }
   requestTPCString = OV_URL + "tpc/" + tpc + "/departures"
@@ -183,6 +192,7 @@ function grabLineDetails() {
   xhr.onreadystatechange = function() {
     if (xhr.readyState !== 4) return
     detailsData = JSON.parse(xhr.response)
+    stopLoadingAnimation();
     getStops(detailsData)
     renderStopButtons()
   }
