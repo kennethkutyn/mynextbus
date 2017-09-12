@@ -1,11 +1,20 @@
 @import 'loading-animations';
+$main-font: helvetica;
+$heading-color: white;
 
 h1 {
-  font-family: arial;
+  font-family: $main-font;
+  color: $heading-color;
 }
 
 h2 {
-  font-family: arial;
+  font-family: $main-font;
+  color: $heading-color;
+}
+
+p {
+  font-family: $main-font;
+  color: $heading-color;
 }
 
 #route-buttons{
@@ -22,4 +31,31 @@ h2 {
 
 body {
   height: 900px;
+  background-color: blue;
 }
+
+button {
+      background-color: transparent;
+      //margin: auto;
+      color: white;
+      border: solid;
+      text-align: center;
+      text-color: white;
+      text-decoration: none;
+      //display: block;
+      font-size: 16px;
+      transition: transform 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      a {
+        text-decoration: none;
+        padding: 10px;
+        display: block;
+        border: solid;
+        font-family: $main-font;
+        color: white;
+      }
+
+
+    }
+button:hover{
+         transform: scale(1.05, 1.05);
+      }
