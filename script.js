@@ -11,12 +11,10 @@ let stopsOnLine = []
 let tpcName
 
 function startLoadingAnimation(){
-  console.log('start animation')
   document.getElementById("loading").style.display = 'block';
 }
 
 function stopLoadingAnimation(){
-  console.log('stop animation')
   document.getElementById("loading").style.display = 'none';
 }
 
@@ -26,9 +24,11 @@ function travelType(type){
   startRoutePicker();
 }
 
-async function startRoutePicker(){
+function startRoutePicker(){
+  document.getElementById("route-buttons").style.display = "block";
   startLoadingAnimation()
   grabAllData();
+  $('html, body').animate({scrollTop: $("#route-buttons").offset().top -10}, 500);
 }
 
 
@@ -44,8 +44,25 @@ function determineRoutes(data) {
 }
 
 function renderRoutes(routes){
+  if (document.getElementById("list-for-route-buttons") !== null){
+    document.getElementById("list-for-route-buttons").remove();
+  }
+  if (document.getElementById("list-for-destination-buttons") !== null){
+    document.getElementById("list-for-destination-buttons").remove();
+    document.getElementById("destination-buttons").style.display = "none";
+  }
+   if (document.getElementById("list-for-stop-buttons") !== null){
+    document.getElementById("list-for-stop-buttons").remove();
+    document.getElementById("stop-buttons").style.display = "none";
+  }
+  if (stopsOnLine.length !== 0){
+    stopsOnLine.length = 0;
+  }
+  if (document.getElementById("results") !== null){
+    document.getElementById("results").innerHTML = ""
+  }
   let buttonList = document.createElement("ul")
-  buttonList.id = "list-for-buttons"
+  buttonList.id = "list-for-route-buttons"
   document.getElementById("route-buttons").append(buttonList)
   for(route of routes){
     newButton = document.createElement("button")
@@ -53,11 +70,30 @@ function renderRoutes(routes){
     newButton.class = "route-buttons"
     newButton.innerHTML = route
     newButton.addEventListener("click", function(){startDestinationPicker(this.id)});
-    document.getElementById("list-for-buttons").append(newButton)
+    document.getElementById("list-for-route-buttons").append(newButton)
   }
 }
 
 function startDestinationPicker(route){
+  if (document.getElementById("list-for-destination-buttons") !== null){
+    document.getElementById("list-for-destination-buttons").remove();
+  }
+  console.log(document.getElementById("list-for-stop-buttons"))
+  if (document.getElementById("list-for-stop-buttons") !== null){
+    stopsOnLine.length = 0;
+    document.getElementById("list-for-stop-buttons").remove();
+    document.getElementById("stop-buttons").style.display = "none";
+  }
+  if (stopsOnLine.length !== 0){
+    stopsOnLine.length = 0;
+  }
+  if (document.getElementById("results") !== null){
+    document.getElementById("results").innerHTML = ""
+  }
+
+  document.getElementById("destination-buttons").style.display = "block";
+  $('html, body').animate({scrollTop: $("#destination-buttons").offset().top -10}, 500);
+
   routeNumber = route
   let buttonList = document.createElement("ul")
   buttonList.id = "list-for-destination-buttons"
@@ -74,12 +110,26 @@ function startDestinationPicker(route){
     newButton.addEventListener("click", function(){startStopPicker(this.id, this.directionCode)});
     document.getElementById("list-for-destination-buttons").append(newButton)
   }
+
 }
 
 function startStopPicker(end, destination){
 
+  if (document.getElementById("list-for-stop-buttons") !== null){
+    stopsOnLine.length = 0;
+    document.getElementById("list-for-stop-buttons").remove();
+  }
+  if (stopsOnLine.length !== 0){
+    stopsOnLine.length = 0;
+  }
+  if (document.getElementById("results") !== null){
+    document.getElementById("results").innerHTML = ""
+  }
+  //console.log(document.getElementById("stop-buttons"))
+  document.getElementById("stop-buttons").style.display = "block";
   direction = destination
   startLoadingAnimation();
+  $('html, body').animate({scrollTop: $("#stop-buttons").offset().top -10}, 500);
   grabLineDetails()
 }
 
@@ -99,6 +149,7 @@ function renderStopButtons(){
 }
 
 function startResults(stopCode, stopName){
+  $('html, body').animate({scrollTop: $("#results").offset().top -10}, 500);
   tpc = stopCode
   tpcName = stopName
   startLoadingAnimation()
@@ -203,7 +254,7 @@ function grabLineDetails() {
 
 
 function init() {
-
+  $('html, body').animate({scrollTop: $("#title").offset().top -10}, 500);
   //renderRoutes()
   //grabLineDetails()
   //grabTimes()
@@ -212,11 +263,8 @@ function init() {
 
 init()
 
-/*
-let typeButtons = document.getElementsByClassName("type-buttons")
-for (button of typeButtons){
-  button.addEventListener("click", function(){travelType("BUS")})
-}*/
+
+
 
 
 

@@ -6,7 +6,7 @@
 </head>
 
   <body>
-      <h1>my next bus</h1>
+      <h1 id="title">my next bus</h1>
       <div id="transport-type-buttons">
         <ul>
           <button class="type-buttons" type="button" id="BUS" onClick="travelType(this.id)">Bus</button>
@@ -16,26 +16,32 @@
         </ul>
       </div>
       <div id="route-buttons">
+        <h2>Which Route?</h2>
       </div>
       <div id="destination-buttons">
+        <h2>Which Direction?</h2>
       </div>
       <div id="stop-buttons">
+        <h2>Which Stop?</h2>
       </div>
       <div id=results-container>
         <h2 id=results></h2>
       </div>
       <div id="loading" class="loading-container">
-      <p>Loading...</p>
-      <div class="circle">
+        <p>Loading...</p>
+        <div class="circle">
 
+
+        </div>
+
+        <div class="circle2">
+        </div>
 
       </div>
 
-      <div class="circle2">
-      </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    </div>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-one-page-nav/3.0.0/jquery.nav.min.js"></script>
 
     <script src="script.js"></script>
   </body>

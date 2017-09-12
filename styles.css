@@ -79,3 +79,18 @@ body {
 
 h1 {
   font-family: arial; }
+
+h2 {
+  font-family: arial; }
+
+#route-buttons {
+  display: none; }
+
+#destination-buttons {
+  display: none; }
+
+#stop-buttons {
+  display: none; }
+
+body {
+  height: 900px; }
