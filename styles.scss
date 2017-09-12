@@ -3,9 +3,13 @@ $main-font: helvetica;
 $heading-color: white;
 $text-width: 90%;
 $buttons-width: 80%;
+$h1-font-size: 5em;
+$other-font-size: 3em;
+$button-font-size: 3em;
 
 h1 {
   font-family: $main-font;
+  font-size: $h1-font-size;
   color: $heading-color;
   //padding-left: 5px;
   width: $text-width;
@@ -19,6 +23,7 @@ h2 {
   //padding-left: 5px;
   width: $text-width;
   margin: auto;
+  font-size: $other-font-size;
 }
 
 p {
@@ -26,6 +31,7 @@ p {
   color: $heading-color;
   width: $text-width;
   margin: auto;
+  font-size: $other-font-size;
 }
 
 #route-buttons{
@@ -33,7 +39,7 @@ p {
 }
 
 .route-buttons{
-  width: 50px;
+  width: 100px;
 }
 
 .destination-buttons{
@@ -43,6 +49,7 @@ p {
 .buttons{
   width: $buttons-width;
   margin: auto;
+
 }
 
 #destination-buttons{
@@ -68,7 +75,7 @@ button {
       text-color: white;
       text-decoration: none;
       //display: block;
-      font-size: 16px;
+      font-size: $button-font-size;
       transition: transform 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
       margin: 3px;
       a {
