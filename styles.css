@@ -1,10 +1,6 @@
-body {
-  margin: 0;
-  padding: 0; }
-
 .loading-container {
-  width: 81%;
-  margin: 0 auto;
+  width: 50px;
+  margin: auto;
   display: none; }
 
 @keyframes slideRightDown {
@@ -15,7 +11,7 @@ body {
     transform: scale(1.2);
     background-color: #0050d1; }
   50% {
-    margin-left: 125px;
+    margin-left: 50px;
     transform: scale(1);
     background-color: #0050d1; }
   75% {
@@ -26,10 +22,10 @@ body {
     background-color: #0050d1; } }
 
 .circle {
-  margin-top: 50px;
-  border-radius: 50px;
-  width: 100px;
-  height: 100px;
+  margin-top: 20px;
+  border-radius: 20px;
+  width: 40px;
+  height: 40px;
   background-color: navy;
   z-index: 0;
   position: absolute;
@@ -43,7 +39,7 @@ body {
 
 @keyframes orbit2 {
   0% {
-    margin-left: 125px;
+    margin-left: 50px;
     background-color: #af0005;
     z-index: -1; }
   25% {
@@ -59,15 +55,15 @@ body {
     background-color: #bc0006;
     z-index: 1; }
   100% {
-    margin-left: 125px;
+    margin-left: 50px;
     z-index: -1;
     background-color: #af0005; } }
 
 .circle2 {
-  margin-top: 50px;
-  border-radius: 50px;
-  width: 100px;
-  height: 100px;
+  margin-top: 20px;
+  border-radius: 20px;
+  width: 40px;
+  height: 40px;
   position: absolute;
   animation-name: orbit2;
   animation-duration: 1.5s;
@@ -79,18 +75,34 @@ body {
 
 h1 {
   font-family: helvetica;
-  color: white; }
+  color: white;
+  width: 90%;
+  margin: auto; }
 
 h2 {
   font-family: helvetica;
-  color: white; }
+  color: white;
+  width: 90%;
+  margin: auto; }
 
 p {
   font-family: helvetica;
-  color: white; }
+  color: white;
+  width: 90%;
+  margin: auto; }
 
 #route-buttons {
   display: none; }
+
+.route-buttons {
+  width: 50px; }
+
+.destination-buttons {
+  width: 100%; }
+
+.buttons {
+  width: 80%;
+  margin: auto; }
 
 #destination-buttons {
   display: none; }
@@ -100,7 +112,7 @@ p {
 
 body {
   height: 900px;
-  background-color: blue; }
+  background-color: navy; }
 
 button {
   background-color: transparent;
@@ -110,7 +122,8 @@ button {
   text-color: white;
   text-decoration: none;
   font-size: 16px;
-  transition: transform 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55); }
+  transition: transform 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  margin: 3px; }
   button a {
     text-decoration: none;
     padding: 10px;

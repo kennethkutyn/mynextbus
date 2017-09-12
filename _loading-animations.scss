@@ -1,20 +1,14 @@
-$animation-width: 125px;
+$animation-width: 50px;
 $duration: 1.5s;
 $curve: cubic-bezier(0.240, 0.000, 0.760, 1.000);
 
 
-body {
-  margin: 0;
-  padding: 0;
-
-}
-
 
 
 .loading-container {
-  width: 81%;
-  margin: 0 auto;
-  display:none;
+  width: $animation-width;
+  margin: auto;
+  display: none;
 }
 
 
@@ -50,10 +44,10 @@ body {
 
 
 .circle {
-  margin-top: 50px;
-  border-radius: 50px;
-  width: 100px;
-  height: 100px;
+  margin-top: 20px;
+  border-radius: 20px;
+  width: 40px;
+  height: 40px;
   background-color: navy;
   z-index: 0;
   position: absolute;
@@ -106,10 +100,10 @@ body {
 
 
 .circle2 {
-  margin-top: 50px;
-  border-radius: 50px;
-  width: 100px;
-  height: 100px;
+  margin-top: 20px;
+  border-radius: 20px;
+  width: 40px;
+  height: 40px;
   position: absolute;
 
   animation-name: orbit2;

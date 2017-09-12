@@ -67,7 +67,7 @@ function renderRoutes(routes){
   for(route of routes){
     newButton = document.createElement("button")
     newButton.id = route
-    newButton.class = "route-buttons"
+    newButton.classList.add("route-buttons")
     newButton.innerHTML = route
     newButton.addEventListener("click", function(){startDestinationPicker(this.id)});
     document.getElementById("list-for-route-buttons").append(newButton)
@@ -78,7 +78,6 @@ function startDestinationPicker(route){
   if (document.getElementById("list-for-destination-buttons") !== null){
     document.getElementById("list-for-destination-buttons").remove();
   }
-  console.log(document.getElementById("list-for-stop-buttons"))
   if (document.getElementById("list-for-stop-buttons") !== null){
     stopsOnLine.length = 0;
     document.getElementById("list-for-stop-buttons").remove();
@@ -103,7 +102,7 @@ function startDestinationPicker(route){
   for (end of destinations){
     newButton = document.createElement("button")
     newButton.id = end
-    newButton.class = "destination-buttons"
+    newButton.classList.add("destination-buttons")
     newButton.innerHTML = end
     newButton.directionCode = i;
     i++;
@@ -158,7 +157,7 @@ function startResults(stopCode, stopName){
 
 function renderResults(){
   departures = getDepartures(departuresData)
-  document.getElementById("results").innerHTML = "The next 3 departures for line #" + routeNumber + " are at " + departures[0] + ", " + departures[1] + ", and " + departures[2]
+  document.getElementById("results").innerHTML = modeOfTransport.toLowerCase() + " #" + routeNumber + " is leaving from " + tpcName + " at " + departures[0] + ", " + departures[1] + ", and " + departures[2]
 }
 
 function getStops(data){
@@ -193,15 +192,31 @@ function getDestinations(data){
 
 function getDepartures(data){
   //console.log(data)
-  upcomingDepartures = []
+  /*upcomingDepartures = []
   for (pass in data[tpc].Passes){
     let departure = data[tpc].Passes[pass].TargetArrivalTime.split("T")[1]
     let departureMinuteLevel = departure.split(":")[0] + ":" + departure.split(":")[1]
     upcomingDepartures.push(departureMinuteLevel)
   }
-  sortedDepartures = upcomingDepartures.sort()
+  upcomingDepartures.length = 3
+  sortedDepartures = upcomingDepartures.sort();
+  return sortedDepartures*/
+
+  upcomingDepartures = []
+  for (pass in data[tpc].Passes){
+    let departure = data[tpc].Passes[pass].TargetArrivalTime
+    upcomingDepartures.push(departure)
+  }
+  sortedDepartures = upcomingDepartures.sort();
   sortedDepartures.length = 3
-  return sortedDepartures
+  let threeUpcomingDepartures = []
+  for (pass of sortedDepartures){
+    dateRemoved = pass.split("T")[1]
+    let departure = dateRemoved.split(":")[0] + ":" + dateRemoved.split(":")[1]
+    threeUpcomingDepartures.push(departure)
+  }
+  return threeUpcomingDepartures
+
 }
 
 
