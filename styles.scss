@@ -21,7 +21,7 @@ h2 {
   font-family: $main-font;
   color: $heading-color;
   //padding-left: 5px;
-  width: $text-width;
+  width: 100%;//$text-width;
   margin: auto;
   font-size: $other-font-size;
 }
@@ -36,10 +36,16 @@ p {
 
 #route-buttons{
   display:none;
+  padding: none;
+}
+
+.type-buttons{
+  width: 20%;
 }
 
 .route-buttons{
-  width: 100px;
+  width: 120px;
+  height: 100px;
 }
 
 .destination-buttons{
@@ -47,7 +53,7 @@ p {
 }
 
 .buttons{
-  width: $buttons-width;
+  width: 100%;//$buttons-width;
   margin: auto;
 
 }

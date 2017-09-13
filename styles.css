@@ -83,7 +83,7 @@ h1 {
 h2 {
   font-family: helvetica;
   color: white;
-  width: 90%;
+  width: 100%;
   margin: auto;
   font-size: 3em; }
 
@@ -95,16 +95,21 @@ p {
   font-size: 3em; }
 
 #route-buttons {
-  display: none; }
+  display: none;
+  padding: none; }
+
+.type-buttons {
+  width: 20%; }
 
 .route-buttons {
-  width: 100px; }
+  width: 120px;
+  height: 100px; }
 
 .destination-buttons {
   width: 100%; }
 
 .buttons {
-  width: 80%;
+  width: 100%;
   margin: auto; }
 
 #destination-buttons {
