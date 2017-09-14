@@ -12,8 +12,8 @@ h1 {
   font-size: $h1-font-size;
   color: $heading-color;
   //padding-left: 5px;
-  width: $text-width;
-  margin: auto;
+  //width: $text-width;
+  //margin: auto;
 
 }
 
@@ -21,16 +21,16 @@ h2 {
   font-family: $main-font;
   color: $heading-color;
   //padding-left: 5px;
-  width: 100%;//$text-width;
-  margin: auto;
+  //width: 100%;//$text-width;
+  //margin: auto;
   font-size: $other-font-size;
 }
 
 p {
   font-family: $main-font;
   color: $heading-color;
-  width: $text-width;
-  margin: auto;
+  //width: $text-width;
+  //margin: auto;
   font-size: $other-font-size;
 }
 
@@ -41,6 +41,7 @@ p {
 
 .type-buttons{
   width: 20%;
+  min-width: 200px;
 }
 
 .route-buttons{
@@ -66,8 +67,12 @@ p {
   display:none;
 }
 
+.footer{
+  height: 2000px;
+}
+
 body {
-  height: 3900px;
+  //height: 3900px;
   //width: 80%;
   background-color: navy;
 }
