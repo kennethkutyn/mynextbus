@@ -128,7 +128,7 @@ button {
   text-decoration: none;
   font-size: 3em;
   transition: transform 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  margin: 3px; }
+  margin: 0; }
   button a {
     text-decoration: none;
     padding: 10px;
