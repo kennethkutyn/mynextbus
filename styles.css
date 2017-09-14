@@ -148,7 +148,7 @@ p {
   height: 2000px; }
 
 body {
-  background-color: #2F4F4F; }
+  background-color: #444444; }
 
 button {
   background-color: transparent;
@@ -166,9 +166,6 @@ button {
 
 button:hover {
   transform: scale(1.05, 1.05); }
-
-button:visited {
-  background-color: red; }
 
 button:active {
   background-color: grey; }

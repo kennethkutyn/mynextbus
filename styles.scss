@@ -108,7 +108,7 @@ p {
 body {
   //height: 3900px;
   //width: 80%;
-  background-color: #2F4F4F;
+  background-color: #444444;
 }
 
 button {
@@ -138,9 +138,7 @@ button {
 button:hover{
          transform: scale(1.05, 1.05);
       }
-button:visited{
-  background-color: red;
-}
+
 button:active{
   //transform: scale(.9, .9)
   background-color: grey;
