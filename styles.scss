@@ -12,17 +12,19 @@ h1 {
   font-size: $h1-font-size;
   color: $heading-color;
   //padding-left: 5px;
-  //width: $text-width;
-  //margin: auto;
+  width: $text-width;
+  margin: auto;
 
 }
 
 h2 {
+
   font-family: $main-font;
   color: $heading-color;
-  //padding-left: 5px;
-  //width: 100%;//$text-width;
-  //margin: auto;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  width: 90%;//$text-width;
+  margin: auto;
   font-size: $other-font-size;
 }
 
@@ -34,29 +36,49 @@ p {
   font-size: $other-font-size;
 }
 
-#route-buttons{
-  display:none;
-  padding: none;
+#transport-type-buttons{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  margin-top: 20px;
 }
+
 
 .type-buttons{
-  width: 20%;
-  min-width: 200px;
-}
-
-.route-buttons{
-  width: 160px;
+  margin: 5px;
+  min-width: 180px;
   height: 120px;
 }
 
-.destination-buttons{
-  width: 100%;
+#route-buttons{ //buttons class
+  display: none;
+  flex-flow: row wrap;
+  justify-content: space-around;
+
 }
 
-.buttons{
-  width: 100%;//$buttons-width;
+#list-for-route-buttons{ //container
+  width: 80%;
   margin: auto;
+}
 
+.route-buttons{ //class of container with title
+  margin: 5px;
+  min-width: 180px;
+  height: 120px;
+  flex: 1;
+}
+
+#list-for-destination-buttons{
+  margin: auto;
+  width: 80%;
+
+}
+
+.destination-buttons{
+  margin: 5px;
+  height: 120px;
+  width: 100%;
 }
 
 #destination-buttons{
@@ -65,6 +87,18 @@ p {
 
 #stop-buttons{
   display:none;
+}
+
+.stop-buttons{
+  margin: 5px;
+  height: 120px;
+  width: 100%;
+}
+
+#list-for-stop-buttons{
+  margin: auto;
+  width: 80%;
+
 }
 
 .footer{
@@ -88,18 +122,27 @@ button {
       //display: block;
       font-size: $button-font-size;
       transition: transform 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-      margin: 10px;
+      //margin: 5px;
       a {
         text-decoration: none;
-        padding: 0;
-        display: block;
+        //padding: 0;
+        //display: block;
         border: solid;
         font-family: $main-font;
         //color: white;
       }
 
 
+
     }
 button:hover{
          transform: scale(1.05, 1.05);
       }
+button:visited{
+  background-color: red;
+}
+button:active{
+  //transform: scale(.9, .9)
+  background-color: grey;
+}
+

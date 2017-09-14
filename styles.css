@@ -76,11 +76,17 @@
 h1 {
   font-family: helvetica;
   font-size: 5em;
-  color: white; }
+  color: white;
+  width: 90%;
+  margin: auto; }
 
 h2 {
   font-family: helvetica;
   color: white;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  width: 90%;
+  margin: auto;
   font-size: 3em; }
 
 p {
@@ -88,30 +94,55 @@ p {
   color: white;
   font-size: 3em; }
 
-#route-buttons {
-  display: none;
-  padding: none; }
+#transport-type-buttons {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  margin-top: 20px; }
 
 .type-buttons {
-  width: 20%;
-  min-width: 200px; }
-
-.route-buttons {
-  width: 160px;
+  margin: 5px;
+  min-width: 180px;
   height: 120px; }
 
-.destination-buttons {
-  width: 100%; }
+#route-buttons {
+  display: none;
+  flex-flow: row wrap;
+  justify-content: space-around; }
 
-.buttons {
-  width: 100%;
+#list-for-route-buttons {
+  width: 80%;
   margin: auto; }
+
+.route-buttons {
+  margin: 5px;
+  min-width: 180px;
+  height: 120px;
+  flex: 1; }
+
+#list-for-destination-buttons {
+  margin: auto;
+  width: 80%; }
+
+.destination-buttons {
+  margin: 5px;
+  height: 120px;
+  width: 100%; }
 
 #destination-buttons {
   display: none; }
 
 #stop-buttons {
   display: none; }
+
+.stop-buttons {
+  margin: 5px;
+  height: 120px;
+  width: 100%; }
+
+#list-for-stop-buttons {
+  margin: auto;
+  width: 80%; }
 
 .footer {
   height: 2000px; }
@@ -127,14 +158,17 @@ button {
   text-color: white;
   text-decoration: none;
   font-size: 3em;
-  transition: transform 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  margin: 10px; }
+  transition: transform 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55); }
   button a {
     text-decoration: none;
-    padding: 0;
-    display: block;
     border: solid;
     font-family: helvetica; }
 
 button:hover {
   transform: scale(1.05, 1.05); }
+
+button:visited {
+  background-color: red; }
+
+button:active {
+  background-color: grey; }
