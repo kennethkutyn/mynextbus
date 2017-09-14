@@ -45,8 +45,8 @@ p {
 }
 
 .route-buttons{
-  width: 120px;
-  height: 100px;
+  width: 160px;
+  height: 120px;
 }
 
 .destination-buttons{
@@ -88,7 +88,7 @@ button {
       //display: block;
       font-size: $button-font-size;
       transition: transform 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-      margin: 0;
+      margin: 10px;
       a {
         text-decoration: none;
         padding: 10px;
