@@ -20,6 +20,10 @@ function stopLoadingAnimation(){
 
 function travelType(type){
   modeOfTransport = type;
+  for(button of document.getElementsByClassName("type-buttons")){
+    button.style.backgroundColor = ""
+  }
+  document.getElementById(modeOfTransport).style.backgroundColor = "#960084"
   //document.getElementById("transport-type-buttons").style.display = "none";
   startRoutePicker();
 }
@@ -60,6 +64,10 @@ function renderRoutes(routes){
   }
   if (document.getElementById("results") !== null){
     document.getElementById("results").innerHTML = ""
+    document.getElementById("results").innerHTML = ""
+    document.getElementById("results1").innerHTML = ""
+    document.getElementById("results2").innerHTML = ""
+    document.getElementById("results3").innerHTML = ""
   }
   let buttonList = document.createElement("div")
   buttonList.id = "list-for-route-buttons"
@@ -77,6 +85,12 @@ function renderRoutes(routes){
 }
 
 function startDestinationPicker(route){
+
+  for(button of document.getElementsByClassName("route-buttons")){
+    button.style.backgroundColor = ""
+  }
+  document.getElementById(route).style.backgroundColor = "#960084"
+
   if (document.getElementById("list-for-destination-buttons") !== null){
     document.getElementById("list-for-destination-buttons").remove();
   }
@@ -90,6 +104,10 @@ function startDestinationPicker(route){
   }
   if (document.getElementById("results") !== null){
     document.getElementById("results").innerHTML = ""
+    document.getElementById("results").innerHTML = ""
+    document.getElementById("results1").innerHTML = ""
+    document.getElementById("results2").innerHTML = ""
+    document.getElementById("results3").innerHTML = ""
   }
 
   document.getElementById("destination-buttons").style.display = "block";
@@ -125,10 +143,19 @@ function startStopPicker(end, destination){
   }
   if (document.getElementById("results") !== null){
     document.getElementById("results").innerHTML = ""
+    document.getElementById("results").innerHTML = ""
+    document.getElementById("results1").innerHTML = ""
+    document.getElementById("results2").innerHTML = ""
+    document.getElementById("results3").innerHTML = ""
   }
   //console.log(document.getElementById("stop-buttons"))
   document.getElementById("stop-buttons").style.display = "block";
   direction = destination
+
+  for(button of document.getElementsByClassName("destination-buttons")){
+    button.style.backgroundColor = ""
+  }
+  document.getElementById(end).style.backgroundColor = "#960084"
   startLoadingAnimation();
   $('html, body').animate({scrollTop: $("#stop-buttons").offset().top +5}, 500);
   grabLineDetails()
@@ -142,6 +169,7 @@ function renderStopButtons(){
     newButton = document.createElement("button")
     newButton.stopCode = stopsOnLine[stop].code
     newButton.stopName = stopsOnLine[stop].name
+    newButton.id = stopsOnLine[stop].name
     newButton.classList.add("stop-buttons")
     newButton.innerHTML = stopsOnLine[stop].name
     newButton.addEventListener("click", function(){startResults(this.stopCode, this.stopName)});
@@ -150,6 +178,14 @@ function renderStopButtons(){
 }
 
 function startResults(stopCode, stopName){
+  for(button of document.getElementsByClassName("stop-buttons")){
+    button.style.backgroundColor = ""
+  }
+  document.getElementById(stopName).style.backgroundColor = "#960084"
+  document.getElementById("results").innerHTML = ""
+  document.getElementById("results1").innerHTML = ""
+  document.getElementById("results2").innerHTML = ""
+  document.getElementById("results3").innerHTML = ""
   startLoadingAnimation()
   $('html, body').animate({scrollTop: $("#results-container").offset().top +5}, 500);
   tpc = stopCode
@@ -160,7 +196,10 @@ function startResults(stopCode, stopName){
 
 function renderResults(){
   departures = getDepartures(departuresData)
-  document.getElementById("results").innerHTML = modeOfTransport.toLowerCase() + " #" + routeNumber + " is leaving from " + tpcName + " at " + departures[0] + ", " + departures[1] + ", and " + departures[2]
+  document.getElementById("results").innerHTML = modeOfTransport.toLowerCase() + " #" + routeNumber + " is leaving from " + tpcName + " at:"
+  document.getElementById("results1").innerHTML = departures[0]
+  document.getElementById("results2").innerHTML = departures[1]
+  document.getElementById("results3").innerHTML = departures[2]
 }
 
 function getStops(data){
