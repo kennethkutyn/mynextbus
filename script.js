@@ -9,6 +9,7 @@ let departuresData
 let detailsData
 let stopsOnLine = []
 let tpcName
+let scrollOffset = 100;
 
 function startLoadingAnimation(){
   document.getElementById("loading").style.display = 'block';
@@ -32,7 +33,7 @@ function startRoutePicker(){
   document.getElementById("route-buttons").style.display = "block";
   startLoadingAnimation()
   grabAllData();
-  $('html, body').animate({scrollTop: $("#route-buttons").offset().top +5}, 500);
+  $('html, body').animate({scrollTop: $("#route-buttons").offset().top -scrollOffset}, 500);
 }
 
 
@@ -111,7 +112,7 @@ function startDestinationPicker(route){
   }
 
   document.getElementById("destination-buttons").style.display = "block";
-  $('html, body').animate({scrollTop: $("#destination-buttons").offset().top +5}, 500);
+  $('html, body').animate({scrollTop: $("#destination-buttons").offset().top -scrollOffset}, 500);
 
   routeNumber = route
   let buttonList = document.createElement("div")
@@ -157,7 +158,7 @@ function startStopPicker(end, destination){
   }
   document.getElementById(end).style.backgroundColor = "#960084"
   startLoadingAnimation();
-  $('html, body').animate({scrollTop: $("#stop-buttons").offset().top +5}, 500);
+  $('html, body').animate({scrollTop: $("#stop-buttons").offset().top -scrollOffset}, 500);
   grabLineDetails()
 }
 
@@ -187,7 +188,7 @@ function startResults(stopCode, stopName){
   document.getElementById("results2").innerHTML = ""
   document.getElementById("results3").innerHTML = ""
   startLoadingAnimation()
-  $('html, body').animate({scrollTop: $("#results-container").offset().top +5}, 500);
+  $('html, body').animate({scrollTop: $("#results-container").offset().top -scrollOffset}, 500);
   tpc = stopCode
   tpcName = stopName
 
@@ -311,11 +312,7 @@ function grabLineDetails() {
 
 
 function init() {
-  $('html, body').animate({scrollTop: $("#title").offset().top -10}, 500);
-  //renderRoutes()
-  //grabLineDetails()
-  //grabTimes()
-
+  $('html, body').animate({scrollTop: $("#title").offset().top -260}, 500);
 }
 
 init()

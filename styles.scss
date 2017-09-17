@@ -12,13 +12,22 @@ h1 {
   font-size: $h1-font-size;
   color: $heading-color;
   //padding-left: 5px;
-  width: $text-width;
+  //width: 50%;
   margin: auto;
+  text-align: center;
+}
 
+#header{
+  background-color: #d3d3d3;
+  height: 100px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  margin: 0;
 }
 
 h2 {
-
   font-family: $main-font;
   color: $heading-color;
   padding-top: 40px;
@@ -41,6 +50,7 @@ p {
   flex-flow: row wrap;
   justify-content: space-around;
   margin-top: 20px;
+  padding-top: 140px;
 }
 
 
@@ -54,7 +64,6 @@ p {
   display: none;
   flex-flow: row wrap;
   justify-content: space-around;
-
 }
 
 #list-for-route-buttons{ //container
@@ -72,7 +81,6 @@ p {
 #list-for-destination-buttons{
   margin: auto;
   width: 80%;
-
 }
 
 .destination-buttons{
@@ -100,8 +108,6 @@ p {
   width: 80%;
 }
 
-
-
 .footer{
   height: 2000px;
 }
@@ -110,6 +116,7 @@ body {
   //height: 3900px;
   //width: 80%;
   background-color: #444444;
+  margin: 0 0 0 0;
 }
 
 button {
@@ -132,9 +139,6 @@ button {
         font-family: $main-font;
         //color: white;
       }
-
-
-
     }
 button:hover{
          transform: scale(1.05, 1.05);

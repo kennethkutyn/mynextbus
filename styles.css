@@ -77,8 +77,17 @@ h1 {
   font-family: helvetica;
   font-size: 5em;
   color: white;
-  width: 90%;
-  margin: auto; }
+  margin: auto;
+  text-align: center; }
+
+#header {
+  background-color: #d3d3d3;
+  height: 100px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  margin: 0; }
 
 h2 {
   font-family: helvetica;
@@ -98,7 +107,8 @@ p {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
-  margin-top: 20px; }
+  margin-top: 20px;
+  padding-top: 140px; }
 
 .type-buttons {
   margin: 5px;
@@ -148,7 +158,8 @@ p {
   height: 2000px; }
 
 body {
-  background-color: #444444; }
+  background-color: #444444;
+  margin: 0 0 0 0; }
 
 button {
   background-color: transparent;
