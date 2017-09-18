@@ -19,25 +19,34 @@ function stopLoadingAnimation(){
   document.getElementById("loading").style.display = 'none';
 }
 
-function travelType(type){
+function travelType(type){//Runs when a travel type has been selected
   modeOfTransport = type;
+
+  //resets background color of all travel type buttons
   for(button of document.getElementsByClassName("type-buttons")){
     button.style.backgroundColor = ""
   }
+
+  //colors the chosen travel type button
   document.getElementById(modeOfTransport).style.backgroundColor = "#960084"
-  //document.getElementById("transport-type-buttons").style.display = "none";
+
   startRoutePicker();
 }
 
 function startRoutePicker(){
+  //show the route buttons container and title
   document.getElementById("route-buttons").style.display = "block";
   startLoadingAnimation()
+
+  //retrieve list of routes
   grabAllData();
+
+  //scroll to top of routes title
   $('html, body').animate({scrollTop: $("#route-buttons").offset().top -scrollOffset}, 500);
 }
 
 
-function determineRoutes(data) {
+function determineRoutes(data) {//extracts routes from AJAX response
   let allRoutes = []
   for (line in data){
     if (line.indexOf(managingCompany) !== -1 && data[line].TransportType == modeOfTransport){
@@ -49,6 +58,7 @@ function determineRoutes(data) {
 }
 
 function renderRoutes(routes){
+  //if buttons or results were already rendered in a previous search, remove them
   if (document.getElementById("list-for-route-buttons") !== null){
     document.getElementById("list-for-route-buttons").remove();
   }
@@ -70,10 +80,10 @@ function renderRoutes(routes){
     document.getElementById("results2").innerHTML = ""
     document.getElementById("results3").innerHTML = ""
   }
+
+  //create and render the list of route buttons
   let buttonList = document.createElement("div")
   buttonList.id = "list-for-route-buttons"
-  //buttonList.style.display = "flex"
-  //buttonList.style.number = 4
   document.getElementById("route-buttons").append(buttonList)
   for(route of routes){
     newButton = document.createElement("button")
@@ -149,7 +159,6 @@ function startStopPicker(end, destination){
     document.getElementById("results2").innerHTML = ""
     document.getElementById("results3").innerHTML = ""
   }
-  //console.log(document.getElementById("stop-buttons"))
   document.getElementById("stop-buttons").style.display = "block";
   direction = destination
 
@@ -201,24 +210,52 @@ function renderResults(){
   document.getElementById("results1").innerHTML = departures[0]
   document.getElementById("results2").innerHTML = departures[1]
   document.getElementById("results3").innerHTML = departures[2]
+  newButton = document.createElement("button")
+  newButton.id = "refresh"
+  newButton.classList.add("refresh-button")
+  newButton.innerHTML = "new search"
+  newButton.addEventListener("click", function(){window.location.reload()});
+  document.getElementById("results-container").append(newButton)
+  newButton = document.createElement("button")
+  newButton.id = "cookie-setter"
+  newButton.classList.add("cookie-button")
+  newButton.innerHTML = "save route"
+  newButton.addEventListener("click", function(){setFavourite()});
+  document.getElementById("results-container").append(newButton)
+}
+
+function setFavourite(){
+  cookieIndex = 1;
+  /*modeOfTransport
+  tpcName
+  tpc
+  route
+  direction
+  directionCode
+  */
+  document.cookie = "cookieIndex=" + cookieIndex + ";" + "modeOfTransport=" + modeOfTransport + ";path=/";
+  console.log
+}
+
+function getFavourite(){
+  //get all cookies
+  //for cookie in cookies
+    //get data
+    //render results
+    //add button to remove
 }
 
 function getStops(data){
   newString = managingCompany + "_" + routeNumber + '_' + direction
-  //console.log(data[newString].Network)
 
   for (thing in data[newString].Network){
-    //console.log(thing)
     chosenThing = thing;
     break
   }
   for (stop in data[newString].Network[chosenThing]){
-    //console.log(data[newString].Network[chosenThing][stop].TimingPointName + data[newString].Network[chosenThing][stop].TimingPointCode)
     thisStop = {name: data[newString].Network[chosenThing][stop].TimingPointName, code: data[newString].Network[chosenThing][stop].TimingPointCode}
     stopsOnLine.push(thisStop)
   }
-  //console.log(stopsOnLine)
-  //return stopsOnLine
 }
 
 
@@ -227,24 +264,12 @@ function getDestinations(data){
   let routeString1 = managingCompany + "_" + routeNumber + "_1"
   let routeString2 = managingCompany + "_" + routeNumber + "_2"
   let destinationOptions = [data[routeString1].DestinationName50, data[routeString2].DestinationName50]
-  //console.log(destinationOptions)
   return destinationOptions
 
 }
 
 
 function getDepartures(data){
-  //console.log(data)
-  /*upcomingDepartures = []
-  for (pass in data[tpc].Passes){
-    let departure = data[tpc].Passes[pass].TargetArrivalTime.split("T")[1]
-    let departureMinuteLevel = departure.split(":")[0] + ":" + departure.split(":")[1]
-    upcomingDepartures.push(departureMinuteLevel)
-  }
-  upcomingDepartures.length = 3
-  sortedDepartures = upcomingDepartures.sort();
-  return sortedDepartures*/
-
   upcomingDepartures = []
   for (pass in data[tpc].Passes){
     let departure = data[tpc].Passes[pass].TargetArrivalTime
@@ -259,7 +284,6 @@ function getDepartures(data){
     threeUpcomingDepartures.push(departure)
   }
   return threeUpcomingDepartures
-
 }
 
 
@@ -281,7 +305,6 @@ function grabAllData() {
 
 function grabTimes() {
   const xhr = new XMLHttpRequest()
-
   xhr.onreadystatechange = function() {
     if (xhr.readyState !== 4) return
     departuresData = JSON.parse(xhr.response)

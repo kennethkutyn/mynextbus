@@ -67,7 +67,7 @@ p {
 }
 
 #list-for-route-buttons{ //container
-  width: 80%;
+  width: 760px;
   margin: auto;
 }
 
@@ -80,13 +80,25 @@ p {
 
 #list-for-destination-buttons{
   margin: auto;
-  width: 80%;
+  width: 760px;
 }
 
 .destination-buttons{
   margin: 5px;
   height: 120px;
   width: 100%;
+}
+
+.refresh-button{
+  display: block;
+  margin: auto;
+  height: 120px;
+  width: 760px;
+  font-size: $button-font-size;
+}
+
+#refresh{
+
 }
 
 #destination-buttons{
@@ -105,7 +117,7 @@ p {
 
 #list-for-stop-buttons{
   margin: auto;
-  width: 80%;
+  width: 760px;
 }
 
 .footer{

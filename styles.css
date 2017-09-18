@@ -121,7 +121,7 @@ p {
   justify-content: space-around; }
 
 #list-for-route-buttons {
-  width: 80%;
+  width: 760px;
   margin: auto; }
 
 .route-buttons {
@@ -132,12 +132,19 @@ p {
 
 #list-for-destination-buttons {
   margin: auto;
-  width: 80%; }
+  width: 760px; }
 
 .destination-buttons {
   margin: 5px;
   height: 120px;
   width: 100%; }
+
+.refresh-button {
+  display: block;
+  margin: auto;
+  height: 120px;
+  width: 760px;
+  font-size: 3em; }
 
 #destination-buttons {
   display: none; }
@@ -152,7 +159,7 @@ p {
 
 #list-for-stop-buttons {
   margin: auto;
-  width: 80%; }
+  width: 760px; }
 
 .footer {
   height: 2000px; }
