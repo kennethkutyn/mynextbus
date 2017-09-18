@@ -146,6 +146,13 @@ p {
   width: 760px;
   font-size: 3em; }
 
+.cookie-button {
+  display: block;
+  margin: auto;
+  height: 120px;
+  width: 760px;
+  font-size: 3em; }
+
 #destination-buttons {
   display: none; }
 

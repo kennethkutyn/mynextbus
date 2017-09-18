@@ -97,9 +97,14 @@ p {
   font-size: $button-font-size;
 }
 
-#refresh{
-
+.cookie-button{
+  display: block;
+  margin: auto;
+  height: 120px;
+  width: 760px;
+  font-size: $button-font-size;
 }
+
 
 #destination-buttons{
   display:none;
