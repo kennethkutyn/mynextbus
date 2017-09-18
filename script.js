@@ -225,24 +225,33 @@ function renderResults(){
 }
 
 function setFavourite(){
-  cookieIndex = 1;
-  /*modeOfTransport
-  tpcName
-  tpc
-  route
-  direction
-  directionCode
-  */
-  document.cookie = "cookieIndex=" + cookieIndex + ";" + "modeOfTransport=" + modeOfTransport + ";path=/";
-  console.log
+  document.cookie = "modeOfTransport=" + modeOfTransport + ";"
+  document.cookie = "tpcName=" + tpcName + ";"
+  document.cookie = "tpc=" + tpc + ";"
+  document.cookie = "routeNumber=" + routeNumber +";"
+  document.cookie = "direction=" + direction + ";"
 }
 
 function getFavourite(){
-  //get all cookies
-  //for cookie in cookies
-    //get data
-    //render results
-    //add button to remove
+
+  if (getCookie("modeOfTransport") !== null){
+    modeOfTransport = getCookie("modeOfTransport")
+    tpcName = getCookie("tpcName")
+    tpc = getCookie("tpc")
+    routeNumber = getCookie("routeNumber")
+    direction = getCookie("direction")
+
+    grabAllData()
+    grabLineDetails()
+    grabTimes()
+    renderResults()
+  }
+}
+
+function getCookie(name) {
+  var value = "; " + document.cookie;
+  var parts = value.split("; " + name + "=");
+  if (parts.length == 2) return parts.pop().split(";").shift();
 }
 
 function getStops(data){
