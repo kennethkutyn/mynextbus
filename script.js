@@ -204,6 +204,14 @@ function startResults(stopCode, stopName){
   grabTimes()
 }
 
+function renderFavourites(){
+  departures = getDepartures(departuresData)
+  document.getElementById("results").innerHTML = modeOfTransport.toLowerCase() + " #" + routeNumber + " is leaving from " + tpcName + " at:"
+  document.getElementById("results1").innerHTML = departures[0]
+  document.getElementById("results2").innerHTML = departures[1]
+  document.getElementById("results3").innerHTML = departures[2]
+}
+
 function renderResults(){
   departures = getDepartures(departuresData)
   document.getElementById("results").innerHTML = modeOfTransport.toLowerCase() + " #" + routeNumber + " is leaving from " + tpcName + " at:"
@@ -235,6 +243,8 @@ function setFavourite(){
 function getFavourite(){
 
   if (getCookie("modeOfTransport") !== null){
+    document.getElementById("transport-type-buttons").style.display = "none"
+    startLoadingAnimation()
     modeOfTransport = getCookie("modeOfTransport")
     tpcName = getCookie("tpcName")
     tpc = getCookie("tpc")
@@ -244,7 +254,6 @@ function getFavourite(){
     grabAllData()
     grabLineDetails()
     grabTimes()
-    renderResults()
   }
 }
 
@@ -345,6 +354,7 @@ function grabLineDetails() {
 
 function init() {
   $('html, body').animate({scrollTop: $("#title").offset().top -260}, 500);
+  getFavourite()
 }
 
 init()

@@ -151,7 +151,8 @@ p {
   margin: auto;
   height: 120px;
   width: 760px;
-  font-size: 3em; }
+  font-size: 3em;
+  margin-top: 5px; }
 
 #destination-buttons {
   display: none; }
