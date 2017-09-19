@@ -363,7 +363,7 @@ function grabLineDetails() {
 
 
 function init() {
-  $('html, body').animate({scrollTop: $("#title").offset().top -260}, 500);
+  $('html, body').animate({scrollTop: $("#transport-type-buttons").offset().top -200}, 500);
   //getFavourite()
 }
 
