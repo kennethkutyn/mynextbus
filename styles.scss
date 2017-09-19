@@ -87,15 +87,9 @@ p {
   margin: 5px;
   height: 120px;
   width: 100%;
+  display: none;
 }
 
-.refresh-button{
-  display: block;
-  margin: auto;
-  height: 120px;
-  width: 760px;
-  font-size: $button-font-size;
-}
 
 .cookie-button{
   display: block;
@@ -103,9 +97,16 @@ p {
   height: 120px;
   width: 760px;
   font-size: $button-font-size;
-  margin-top: 5px;
+  margin-top: 10px;
 }
 
+.refresh-button{
+
+  margin: auto;
+  height: 120px;
+  width: 760px;
+  font-size: $button-font-size;
+}
 
 #destination-buttons{
   display:none;

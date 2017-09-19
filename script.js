@@ -79,6 +79,7 @@ function renderRoutes(routes){
     document.getElementById("results1").innerHTML = ""
     document.getElementById("results2").innerHTML = ""
     document.getElementById("results3").innerHTML = ""
+    document.getElementById("refresh").style.display = "none"
   }
 
   //create and render the list of route buttons
@@ -119,6 +120,7 @@ function startDestinationPicker(route){
     document.getElementById("results1").innerHTML = ""
     document.getElementById("results2").innerHTML = ""
     document.getElementById("results3").innerHTML = ""
+    document.getElementById("refresh").style.display = "none"
   }
 
   document.getElementById("destination-buttons").style.display = "block";
@@ -136,10 +138,12 @@ function startDestinationPicker(route){
     newButton.classList.add("destination-buttons")
     newButton.innerHTML = end
     newButton.directionCode = i;
+    newButton.style.display = "block"
     i++;
     newButton.addEventListener("click", function(){startStopPicker(this.id, this.directionCode)});
     document.getElementById("list-for-destination-buttons").append(newButton)
   }
+  //document.getElementById("list-for-destination-buttons").style.display = "block"
 
 }
 
@@ -158,6 +162,7 @@ function startStopPicker(end, destination){
     document.getElementById("results1").innerHTML = ""
     document.getElementById("results2").innerHTML = ""
     document.getElementById("results3").innerHTML = ""
+    document.getElementById("refresh").style.display = "none"
   }
   document.getElementById("stop-buttons").style.display = "block";
   direction = destination
@@ -196,6 +201,7 @@ function startResults(stopCode, stopName){
   document.getElementById("results1").innerHTML = ""
   document.getElementById("results2").innerHTML = ""
   document.getElementById("results3").innerHTML = ""
+  document.getElementById("refresh").style.display = "none"
   startLoadingAnimation()
   $('html, body').animate({scrollTop: $("#results-container").offset().top -scrollOffset}, 500);
   tpc = stopCode
@@ -218,7 +224,8 @@ function renderResults(){
   document.getElementById("results1").innerHTML = departures[0]
   document.getElementById("results2").innerHTML = departures[1]
   document.getElementById("results3").innerHTML = departures[2]
-  newButton = document.createElement("button")
+  document.getElementById("refresh").style.display = "block"
+  /*newButton = document.createElement("button")
   newButton.id = "refresh"
   newButton.classList.add("refresh-button")
   newButton.innerHTML = "new search"
@@ -229,7 +236,7 @@ function renderResults(){
   newButton.classList.add("cookie-button")
   newButton.innerHTML = "save route"
   newButton.addEventListener("click", function(){setFavourite()});
-  document.getElementById("results-container").append(newButton)
+  document.getElementById("results-container").append(newButton)*/
 }
 
 function setFavourite(){
@@ -354,7 +361,7 @@ function grabLineDetails() {
 
 function init() {
   $('html, body').animate({scrollTop: $("#title").offset().top -260}, 500);
-  getFavourite()
+  //getFavourite()
 }
 
 init()

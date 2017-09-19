@@ -137,14 +137,8 @@ p {
 .destination-buttons {
   margin: 5px;
   height: 120px;
-  width: 100%; }
-
-.refresh-button {
-  display: block;
-  margin: auto;
-  height: 120px;
-  width: 760px;
-  font-size: 3em; }
+  width: 100%;
+  display: none; }
 
 .cookie-button {
   display: block;
@@ -152,7 +146,13 @@ p {
   height: 120px;
   width: 760px;
   font-size: 3em;
-  margin-top: 5px; }
+  margin-top: 10px; }
+
+.refresh-button {
+  margin: auto;
+  height: 120px;
+  width: 760px;
+  font-size: 3em; }
 
 #destination-buttons {
   display: none; }
