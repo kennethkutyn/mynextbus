@@ -92,7 +92,7 @@ function renderRoutes(routes){
     newButton.classList.add("route-buttons")
     newButton.innerHTML = route
     newButton.addEventListener("click", function(){startDestinationPicker(this.id)});
-    newButton.addEventListener("touchstart", function(){startDestinationPicker(this.id)});
+    //newButton.addEventListener("touchstart", function(){startDestinationPicker(this.id)});
     document.getElementById("list-for-route-buttons").append(newButton)
   }
 }
@@ -142,10 +142,10 @@ function startDestinationPicker(route){
     newButton.style.display = "block"
     i++;
     newButton.addEventListener("click", function(){startStopPicker(this.id, this.directionCode)});
-    newButton.addEventListener("touchstart", function(){startStopPicker(this.id, this.directionCode)});
+    //newButton.addEventListener("touchstart", function(){startStopPicker(this.id, this.directionCode)});
     document.getElementById("list-for-destination-buttons").append(newButton)
   }
-  //document.getElementById("list-for-destination-buttons").style.display = "block"
+
 
 }
 
@@ -190,7 +190,7 @@ function renderStopButtons(){
     newButton.classList.add("stop-buttons")
     newButton.innerHTML = stopsOnLine[stop].name
     newButton.addEventListener("click", function(){startResults(this.stopCode, this.stopName)});
-    newButton.addEventListener("touchstart", function(){startResults(this.stopCode, this.stopName)});
+    //newButton.addEventListener("touchstart", function(){startResults(this.stopCode, this.stopName)});
     document.getElementById("list-for-stop-buttons").append(newButton)
   }
 }
