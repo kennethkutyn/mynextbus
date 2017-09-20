@@ -323,10 +323,12 @@ function grabAllData() {
     linesData = JSON.parse(xhr.response)
     stopLoadingAnimation();
     renderRoutes(determineRoutes(linesData))
+    console.log(linesData)
   }
   requestLineString = OV_URL + "line/"
   xhr.open('GET', requestLineString)
   xhr.send()
+
 }
 
 
@@ -338,10 +340,12 @@ function grabTimes() {
     departuresData = JSON.parse(xhr.response)
     stopLoadingAnimation()
     renderResults()
+    console.log(departuresData)
   }
   requestTPCString = OV_URL + "tpc/" + tpc + "/departures"
   xhr.open('GET', requestTPCString)
   xhr.send()
+
 }
 
 
@@ -355,10 +359,12 @@ function grabLineDetails() {
     stopLoadingAnimation();
     getStops(detailsData)
     renderStopButtons()
+    console.log(detailsData)
   }
   requestRouteString = OV_URL + "line/" + managingCompany + "_" + routeNumber + '_' + direction
   xhr.open('GET', requestRouteString)
   xhr.send()
+  console.log(detailsData)
 }
 
 
